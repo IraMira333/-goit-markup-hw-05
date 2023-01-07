@@ -29,6 +29,8 @@
  --team-social: #4d5ae5;
  --customer-border: #8e8f99;
  --customer-hover: #404bbf;
+ --work-text-action-color: #f4f4fd;
+ --work-box-action-bgc: #4d5ae5;
  --footer-social-bgc: rgba(255, 255, 255, 0.1);
  --footer-social-bgc-hover: #31d0aa;
 }
@@ -528,7 +530,43 @@ body {
  padding-left: 16px;
  border: 1px solid var(--border-color);
  border-top: none;
+}
+.work-box-action {
+ position: relative;
+}
+
+.work-text-action {
+ position: absolute;
+ top: 40px;
+ left: 32px;
+ width: 296px;
+ font-weight: 400;
+ font-size: 16px;
+ line-height: 1.5;
+ letter-spacing: 0.02em;
+ color: var(--work-text-action-color);
  
+ opacity: 0;
+}
+
+.work-box-action:hover .work-text-action,
+.work-box-action:focus .work-text-action {
+ opacity: 1;
+}
+
+.work-box-action::before {
+ content: '';
+ display: inline-block;
+ width: 100%;
+ height: 100%;
+ background-color: var(--work-box-action-bgc);
+ position: absolute;
+ opacity: 0;
+}
+
+.work-box-action:hover::before,
+.work-box-action:focus::before {
+ opacity: 1;
 }
 /* .border-prtf:hover,
 .border-prtf:focus {
