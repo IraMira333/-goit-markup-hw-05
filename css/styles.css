@@ -33,6 +33,9 @@
  --work-box-action-bgc: #4d5ae5;
  --footer-social-bgc: rgba(255, 255, 255, 0.1);
  --footer-social-bgc-hover: #31d0aa;
+ --modal-bgcolor: #fcfcfc;
+ --modal-close-bgc: #e7e9fc;
+ --backdrop-bgc: rgba(46, 47, 66, 0.4);
 }
 
 body {
@@ -545,7 +548,7 @@ body {
  line-height: 1.5;
  letter-spacing: 0.02em;
  color: var(--work-text-action-color);
- 
+
  opacity: 0;
 }
 
@@ -571,3 +574,45 @@ body {
 /* .border-prtf:hover,
 .border-prtf:focus {
 border: 0.5px solid #f4f4fd;} */
+
+.backdrop {
+ position: fixed;
+ top: 0;
+ left: 0;
+ width: 100%;
+ height: 100%;
+ background-color: var(--backdrop-bgc);
+}
+.backdrop.is-hidden {
+ opacity: 0;
+ pointer-events: none;
+}
+
+.modal {
+ position: absolute;
+ top: 50%;
+ left: 50%;
+ transform: translate(-50%, -50%);
+ min-height: 576px;
+ min-width: 408px;
+ padding: ;
+ background-color: var(--modal-bgcolor);
+}
+.modal-close {
+ display: block;
+ height: 24px;
+ width: 24px;
+ margin-right: 24px;
+ margin-top: 24px;
+ margin-left: auto;
+ padding: 0;
+ border-radius: 50%;
+ border: 1px solid rgba(0, 0, 0, 0.1);
+ background-color: var(--modal-close-bgc);
+ cursor: pointer;
+}
+
+.icon-modal-close {
+ height: 8px;
+ width: 8px;
+}
