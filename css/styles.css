@@ -603,7 +603,6 @@ body {
 border: 0.5px solid #f4f4fd;} */
 
 /* ---MODALKA-- */
-
 .backdrop {
  position: fixed;
  top: 0;
@@ -613,25 +612,30 @@ border: 0.5px solid #f4f4fd;} */
  transform: scale(1, 1);
  transition: scale 2500ms cubic-bezier(0.4, 0, 0.2, 1);
  background-color: var(--backdrop-bgc);
+ opacity: 1;
+ transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
- /* opacity: 0; */
+ opacity: 0;
  pointer-events: none;
- transform: scale(0, 0);
 }
 
 .modal {
  position: absolute;
  top: 50%;
  left: 50%;
- transform: translate(-50%, -50%);
  min-height: 576px;
  min-width: 408px;
- padding: ;
  background-color: var(--modal-bgcolor);
+ transform: translate(-50%, -50%) scale(1);
+ transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
+.backdrop.is-hidden .modal {
+  transform: translate(-50%, -50%) scale(0);
+ }
 .modal-close {
  display: block;
+ 
  height: 24px;
  width: 24px;
  margin-right: 24px;
@@ -643,8 +647,8 @@ border: 0.5px solid #f4f4fd;} */
  background-color: var(--modal-close-bgc);
  cursor: pointer;
 }
-
 .icon-modal-close {
+  
  height: 8px;
  width: 8px;
-}
+ }
