@@ -35,6 +35,7 @@
  --footer-social-bgc-hover: #31d0aa;
  --modal-bgcolor: #fcfcfc;
  --modal-close-bgc: #e7e9fc;
+ --modal-close-bgc-hover: #404bbf;
  --backdrop-bgc: rgba(46, 47, 66, 0.4);
 }
 
@@ -609,14 +610,15 @@ border: 0.5px solid #f4f4fd;} */
  left: 0;
  width: 100%;
  height: 100%;
- transform: scale(1, 1);
- transition: scale 2500ms cubic-bezier(0.4, 0, 0.2, 1);
  background-color: var(--backdrop-bgc);
  opacity: 1;
- transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1);
+ visibility: visible;
+ transition: opacity 250ms cubic-bezier(0.4, 0, 0.2, 1),
+  visibility 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden {
  opacity: 0;
+ visibility: hidden;
  pointer-events: none;
 }
 
@@ -631,11 +633,10 @@ border: 0.5px solid #f4f4fd;} */
  transition: transform 250ms cubic-bezier(0.4, 0, 0.2, 1);
 }
 .backdrop.is-hidden .modal {
-  transform: translate(-50%, -50%) scale(0);
- }
+ transform: translate(-50%, -50%) scale(0);
+}
 .modal-close {
  display: block;
- 
  height: 24px;
  width: 24px;
  margin-right: 24px;
@@ -646,9 +647,21 @@ border: 0.5px solid #f4f4fd;} */
  border: 1px solid rgba(0, 0, 0, 0.1);
  background-color: var(--modal-close-bgc);
  cursor: pointer;
+ transition: background-color 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close:hover,
+.modal-close:focus,
+.modal-close:active {
+ background-color: var(--modal-close-bgc-hover);
 }
 .icon-modal-close {
-  
+ fill: #000000;
  height: 8px;
  width: 8px;
- }
+ transition: fill 250ms cubic-bezier(0.4, 0, 0.2, 1);
+}
+.modal-close:hover .icon-modal-close,
+.modal-close:focus .icon-modal-close,
+.modal-close:active .icon-modal-close {
+ fill: #ffffff;
+}
